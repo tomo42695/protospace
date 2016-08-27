@@ -6,7 +6,6 @@
   - text   text
   - catchcopy   text
   - concept   text
-  - enum image: { main: 0, sub: 1 }
 - proto_images
   - proto_id   integer
   - content   text
@@ -24,8 +23,8 @@
   - protos_id   integer
   - text   text
 - likes
-  - user_id
-  - proto_id
+  - user_id   integer
+  - proto_id   integer
 # アソシエーション
 - protos
   - belongs_to :user
