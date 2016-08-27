@@ -9,7 +9,7 @@
 - proto_images
   - proto_id   integer
   - content   text
-  - role   integer
+  - role   integer   (enum role: %i(main sub))
 - users
   - id   integer
   - username    string
