@@ -7,38 +7,38 @@
   - catchcopy   text
   - concept   text
   - enum image: { main: 0, sub: 1 }
+- proto_images
+  - proto_id   integer
+  - content   text
+  - role   integer
 - users
   - id   integer
   - username    string
   - password    string
+  - member   string
+  - profile   text
+  - works   string
 - comments
   - id   integer
   - users_id   integer
   - protos_id   integer
   - text   text
-- tags
-  - id   integer
-  - name   string
-- protos_tags
-  - tags_id   integer
-  - protos_id   integer
-  
+- likes
+  - user_id
+  - proto_id
 アソシエーション
 - protos
   - belongs_to :user
   - has_many :comments
-  - has_many :tags, through: :protos_tags
   - has_many :images
 - users
   - has_many :protos
   - has_many :comments
-- images
+- proto_images
   - belongs_to :proto
 - comments
   - belongs_to :proto
   - belongs_to :user
-- tags
-  - has_many :protos, through: :protos_tags
-- protos_tags
-  - belongs_to :proto
-  - belongs_to :tag
+- likes
+  - belomgs_to :proto
+  - belongs_tp :user
