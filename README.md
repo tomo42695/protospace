@@ -26,7 +26,7 @@
 - likes
   - user_id
   - proto_id
-アソシエーション
+# アソシエーション
 - protos
   - belongs_to :user
   - has_many :comments
