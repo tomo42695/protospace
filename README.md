@@ -1,13 +1,13 @@
 # protospace
 # データベース設計書
-- protos
+- prototypes
   - id    integer
   - title   text
   - text   text
   - catchcopy   text
   - concept   text
-- proto_images
-  - proto_id   integer
+- prototype_images
+  - prototype_id   integer
   - content   text
   - role   integer   (enum role: %i(main sub))
 - users
@@ -19,25 +19,25 @@
   - works   string
 - comments
   - id   integer
-  - users_id   integer
-  - protos_id   integer
+  - user_id   integer
+  - prototype_id   integer
   - text   text
 - likes
   - user_id   integer
-  - proto_id   integer
+  - prototype_id   integer
 # アソシエーション
-- protos
+- prototypes
   - belongs_to :user
   - has_many :comments
   - has_many :images
 - users
-  - has_many :protos
+  - has_many :prototypes
   - has_many :comments
-- proto_images
-  - belongs_to :proto
+- prototype_images
+  - belongs_to :prototypes
 - comments
-  - belongs_to :proto
+  - belongs_to :prototypes
   - belongs_to :user
 - likes
-  - belomgs_to :proto
-  - belongs_tp :user
+  - belomgs_to :prototypes
+  - belongs_to :user
