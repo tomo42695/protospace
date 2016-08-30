@@ -25,6 +25,7 @@
 - likes
   - user_id   integer
   - prototype_id   integer
+
 # アソシエーション
 - prototypes
   - belongs_to :user
