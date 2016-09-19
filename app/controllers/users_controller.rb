@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     if user.id == current_user.id
       user.update(user_params)
     end
+    redirect_to action: :show
   end
 
   def user_params
