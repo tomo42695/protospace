@@ -6,6 +6,7 @@
   - text   text
   - catchcopy   text
   - concept   text
+  - user_id   integer
 - prototype_images
   - prototype_id   integer
   - content   text
