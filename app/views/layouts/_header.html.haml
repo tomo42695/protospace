@@ -20,9 +20,10 @@
                 = link_to "Log out", destroy_user_session_path, method: :delete
               %li
                 = link_to "My Page", user_path(current_user)
-          %li
-            .btn.btn-primary.navbar-btn
-              = link_to "New Proto", new_prototype_path
+          = if user_signed_in?
+            %li
+              .btn.btn-primary.navbar-btn
+                = link_to "New Proto", new_prototype_path
       -else
         %ul.nav.navbar-nav.navbar-right
           %li

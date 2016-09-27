@@ -6,20 +6,21 @@
           .proto-new-title
             = f.text_area :title, placeholder: "Title", class: "proto-new-title"
       .row
-        .col-md-12
-          .cover-image-upload
-            %input{type: "file"}/
-        .col-md-12
-          %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload
-                %input{type: "file"}/
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+        = fields_for(@main_content) do |main|
+          .col-md-12
+            .cover-image-upload
+              = main.file_field :content, role: :main
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              %li.list-group-item.col-md-4
+                .image-upload
+                  %input{type: "file"}/
+              %li.list-group-item.col-md-4
+                .image-upload
+                  %input{type: "file"}/
+              %li.list-group-item.col-md-4
+                .image-upload-plus
+                  %span +
       .row.proto-description
         .col-md-12
           = f.text_area :catchcopy, placeholder: "Catch Copy"

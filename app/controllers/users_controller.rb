@@ -16,6 +16,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.permit(:email, :password, :username, :member, :profile, :work, :image)
+    params.permit(:email, :password, :username, :member, :profile, :work, :image).merge(user_id: current_user.id)
   end
 end
