@@ -8,15 +8,13 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    @main_content.save
+    prototype = Prototype.new(prototype_params)
+    prototype.save
     redirect_to action: :index
   end
 
+  private
   def prototype_params
-    params.require(:prototype).permit(:title, :text, :catchcopy, :concept).merge(user_id: current_user.id)
-  end
-
-  def prototype_image_params
-    params.require(:prototype_image).permit(:content, :role).merge(prototype_id: params[:prototype_id])
+    params.require(:prototype).permit(:title, :text, :catchcopy, :concept, prototype_images_attributes: [:content, :role]).merge(user_id: current_user.id)
   end
 end
