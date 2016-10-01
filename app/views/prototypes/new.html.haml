@@ -15,12 +15,14 @@
             %ul.proto-sub-list.list-group
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image.hidden_field :role, {value: 'sub'}
-                  = image.file_field :content, role: :sub
+                  = f.fields_for :prototype_images do |image|
+                    = image.hidden_field :role, {value: 'sub'}
+                    = image.file_field :content, role: :sub
               %li.list-group-item.col-md-4
                 .image-upload
-                  = image.hidden_field :role, {value: 'sub'}
-                  = image.file_field :content, role: :sub
+                  = f.fields_for :prototype_images do |image|
+                    = image.hidden_field :role, {value: 'sub'}
+                    = image.file_field :content, role: :sub
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
