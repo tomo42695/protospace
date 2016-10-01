@@ -10,6 +10,7 @@ class PrototypesController < ApplicationController
   def create
     prototype = Prototype.new(prototype_params)
     prototype.save
+    flash[:notice] = "投稿が完了しました"
     redirect_to action: :index
   end
 
