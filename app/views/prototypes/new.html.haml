@@ -6,18 +6,19 @@
           .proto-new-title
             = f.text_area :title, placeholder: "Title", class: "proto-new-title"
       .row
-        = f.fields_for :prototype_images do |image|
-          .col-md-12
-            .cover-image-upload
-              = image.hidden_field :role, {value: 'main'}
+        .col-md-12
+          .cover-image-upload
+            = f.fields_for :prototype_images do |image|
+              = image.hidden_field :role, value: :main
               = image.file_field :content
           .col-md-12
             %ul.proto-sub-list.list-group
               - 2.times do
                 %li.list-group-item.col-md-4
                   .image-upload
-                    = image.hidden_field :role, {value: 'sub'}
-                    = image.file_field :content
+                    = f.fields_for :prototype_images do |image|
+                      = image.hidden_field :role, value: :sub
+                      = image.file_field :content
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
