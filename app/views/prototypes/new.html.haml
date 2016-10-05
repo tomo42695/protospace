@@ -10,19 +10,14 @@
           .col-md-12
             .cover-image-upload
               = image.hidden_field :role, {value: 'main'}
-              = image.file_field :content, role: 0
+              = image.file_field :content
           .col-md-12
             %ul.proto-sub-list.list-group
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = f.fields_for :prototype_images do |image|
+              - 2.times do
+                %li.list-group-item.col-md-4
+                  .image-upload
                     = image.hidden_field :role, {value: 'sub'}
-                    = image.file_field :content, role: :sub
-              %li.list-group-item.col-md-4
-                .image-upload
-                  = f.fields_for :prototype_images do |image|
-                    = image.hidden_field :role, {value: 'sub'}
-                    = image.file_field :content, role: :sub
+                    = image.file_field :content
               %li.list-group-item.col-md-4
                 .image-upload-plus
                   %span +
