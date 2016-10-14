@@ -3,4 +3,5 @@ class Prototype < ActiveRecord::Base
   has_many :prototype_images
   accepts_nested_attributes_for :prototype_images, allow_destroy: true, reject_if: proc { |attributes| attributes['content'].blank? }
   validates :title, :catchcopy, :concept, :prototype_images, presence: true
+  paginates_per 8
 end

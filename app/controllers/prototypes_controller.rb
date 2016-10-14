@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.includes(:prototype_images).order("created_at DESC").page(params[:page]).per(8)
+    @prototypes = Prototype.includes(:prototype_images).order("created_at DESC").page(params[:page])
   end
 
   def new
@@ -13,10 +13,14 @@ class PrototypesController < ApplicationController
   end
 
   def create
-    prototype = Prototype.new(prototype_params)
-    prototype.save
-    flash[:notice] = "投稿が完了しました"
-    redirect_to action: :index
+    @prototype = Prototype.new(prototype_params)
+    if @prototype.save
+      flash[:notice] = "Create Success"
+      redirect_to action: :index
+    else
+      flash[:alert] = "Cannot Create"
+      render action: :new
+    end
   end
 
   private
