@@ -3,7 +3,6 @@
 - prototypes
   - id    integer
   - title   text
-  - text   text
   - catchcopy   text
   - concept   text
   - user_id   integer
