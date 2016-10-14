@@ -1,6 +1,6 @@
 class PrototypesController < ApplicationController
   def index
-    @prototypes = Prototype.includes(:prototype_images).order("created_at DESC").page(params[:page])
+    @prototypes = Prototype.includes(:prototype_images).order(created_at: :desc).page(params[:page])
   end
 
   def new

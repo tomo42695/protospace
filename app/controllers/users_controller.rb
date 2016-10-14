@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @prototypes = @user.prototypes.order("created_at DESC").page(params[:page])
+    @prototypes = @user.prototypes.order(created_at: :desc).page(params[:page])
   end
 
   def edit
