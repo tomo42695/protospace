@@ -3,7 +3,6 @@
 - prototypes
   - id    integer
   - title   text
-  - text   text
   - catchcopy   text
   - concept   text
   - user_id   integer
@@ -31,7 +30,7 @@
 - prototypes
   - belongs_to :user
   - has_many :comments
-  - has_many :images
+  - has_many :prototype_images
 - users
   - has_many :prototypes
   - has_many :comments

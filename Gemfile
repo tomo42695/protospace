@@ -53,3 +53,4 @@ end
   gem "devise"
   gem "carrierwave"
   gem "twitter-bootstrap-rails"
+  gem "kaminari"
