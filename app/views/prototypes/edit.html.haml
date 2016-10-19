@@ -1,0 +1,40 @@
+.conrainer.proto-new
+  = form_for @prototype do |f|
+    .col-md-8.col-md-offset-2
+      %header.row.user-nav.row
+        .col-md-12
+          .proto-new-title
+            = f.text_area :title, placeholder: "Title", class: "proto-new-title"
+      .row
+        .col-md-12
+          .cover-image-upload
+            = f.fields_for :prototype_images do |image|
+              = image.hidden_field :role, value: :main
+              = image.file_field :content
+          .col-md-12
+            %ul.proto-sub-list.list-group
+              - 2.times do
+                %li.list-group-item.col-md-4
+                  .image-upload
+                    = f.fields_for :prototype_images do |image|
+                      = image.hidden_field :role, value: :sub
+                      = image.file_field :content
+              %li.list-group-item.col-md-4
+                .image-upload-plus
+                  %span +
+      .row.proto-description
+        .col-md-12
+          = f.text_area :catchcopy, placeholder: "Catch Copy"
+        .col-md-12
+          = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+        .col-md-12
+          %h4 Tag List
+          .row
+            .col-md-3
+              %input{type: "text", placeholder: "Web Design"}/
+            .col-md-3
+              %input{type: "text", placeholder: "UI"}/
+            .col-md-3
+              %input{type: "text", placeholder: "Application"}/
+      .row.text-center.proto-btn
+        = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"

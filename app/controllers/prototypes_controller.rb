@@ -18,7 +18,7 @@ class PrototypesController < ApplicationController
       flash[:notice] = "Create Success"
       redirect_to action: :index
     else
-      flash[:alert] = "Cannot Create"
+      flash[:alert] = "Could Not Create"
       render action: :new
     end
   end
@@ -29,16 +29,21 @@ class PrototypesController < ApplicationController
 
   def destroy
     prototype = Prototype.find(params[:id])
-    if prototype.id == current_user.id
+    if prototype.user.id == current_user.id
       prototype.destroy
     end
+    redirect_to action: :index
+    flash[:notice] = "Successfully Deleted"
   end
 
   def update
     prototype = Prototype.find(params[:id])
-    if prototype.id == current_user.id
+    binding.pry
+    if prototype.user.id == current_user.id
       prototype.update(prototype_params)
     end
+    redirect_to action: :index
+    flash[:notice] = "Successfully Edited"
   end
 
   private
