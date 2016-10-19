@@ -2,15 +2,23 @@
   .thumbnail
     = link_to prototype_path(prototype) do
       = image_tag(prototype.prototype_images.main.first.content)
-      .caption
-        %h3= prototype.title
-        .proto-meta
-          .proto-user
-            = link_to "by #{prototype.user.username}", user_path(prototype.user)
-          .proto-posted
-            = prototype.created_at.strftime("%b %d %Y")
-        %ul.proto-tag-list.list-inline
-          %li
-            %a{href: "#", class: "btn btn-default"} iPad
-          %li
-            %a{href: "#", class: "btn btn-default"} wireframe
+        .more
+          %span
+          more
+          %ul.more_list
+            %li
+              = link_to 'edit', edit_prototype_path(prototype)
+            %li
+              = link_to 'delete', "/prototypes/#{prototype.id}", method: :delete
+    .caption
+      %h3= prototype.title
+      .proto-meta
+        .proto-user
+          = link_to "by #{prototype.user.username}", user_path(prototype.user)
+        .proto-posted
+          = prototype.created_at.strftime("%b %d %Y")
+      %ul.proto-tag-list.list-inline
+        %li
+          %a{href: "#", class: "btn btn-default"} iPad
+        %li
+          %a{href: "#", class: "btn btn-default"} wireframe
