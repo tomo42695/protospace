@@ -3,13 +3,13 @@
     = link_to prototype_path(prototype) do
       = image_tag(prototype.prototype_images.main.first.content)
       .more
-        %span
-        more
-        %ul.more_list
-          %li
-            = link_to 'edit', edit_prototype_path(prototype)
-          %li
-            = link_to 'delete', "/prototypes/#{prototype.id}", method: :delete
+        .btn.btn-default.dropdown-toggle
+          more
+          %ul.more_list
+            %li
+              = link_to 'edit', edit_prototype_path(prototype)
+            %li
+              = link_to 'delete', "/prototypes/#{prototype.id}", method: :delete
     .caption
       %h3= prototype.title
       .proto-meta
