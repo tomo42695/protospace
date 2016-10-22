@@ -1,15 +1,6 @@
 .col-sm-4.col-md-3.proto-conent
   .thumbnail
-    = link_to prototype_path(prototype) do
-      = image_tag(prototype.prototype_images.main.first.content)
-      .more
-        .btn.btn-default.dropdown-toggle
-          more
-          %ul.more_list
-            %li
-              = link_to 'edit', edit_prototype_path(prototype)
-            %li
-              = link_to 'delete', "/prototypes/#{prototype.id}", method: :delete
+    = link_to image_tag(prototype.prototype_images.main.first.content), prototype_path(prototype)
     .caption
       %h3= prototype.title
       .proto-meta
