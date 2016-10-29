@@ -40,7 +40,6 @@ class PrototypesController < ApplicationController
 
   def update
     prototype = Prototype.find(params[:id])
-    binding.pry
     if prototype.user.id == current_user.id
       prototype.update(prototype_params)
     end
