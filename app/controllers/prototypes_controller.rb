@@ -1,4 +1,5 @@
 class PrototypesController < ApplicationController
+  before_action :set_prototype, only: [:update, :destroy]
   def index
     @prototypes = Prototype.includes(:prototype_images).order(created_at: :desc).page(params[:page])
   end
@@ -14,6 +15,7 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
+    binding.pry
     if @prototype.save
       flash[:notice] = "Create Success"
       redirect_to action: :index
@@ -44,6 +46,10 @@ class PrototypesController < ApplicationController
     end
     redirect_to action: :index
     flash[:notice] = "Successfully Edited"
+  end
+
+  def set_prototype
+      prototype = Prototype.find(params[:id])
   end
 
   private
