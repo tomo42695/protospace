@@ -11,6 +11,7 @@ class PrototypesController < ApplicationController
 
   def show
     @prototype = Prototype.find(params[:id])
+    @like = Like.find_by(prototype_id: @prototype.id)
   end
 
   def create

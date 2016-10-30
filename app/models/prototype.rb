@@ -5,4 +5,8 @@ class Prototype < ActiveRecord::Base
   accepts_nested_attributes_for :prototype_images, allow_destroy: true, reject_if: proc { |attributes| attributes['content'].blank? }
   validates :title, :catchcopy, :concept, :prototype_images, presence: true
   paginates_per 8
+
+  def like_user(user_id)
+    likes.find_by(user_id: user_id)
+  end
 end
