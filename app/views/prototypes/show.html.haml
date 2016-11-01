@@ -14,7 +14,8 @@
             %span.degree we-b inc. Designer
 
     .col-md-6.text-right
-      = render partial: 'like', locals: {prototype: @prototype, like: @like}
+      #like-buttons
+        = render partial: 'like', locals: {prototype: @prototype, like: @like}
   .row
     .col-md-9
       = image_tag(@prototype.prototype_images.main.first.content, class: 'img-responsive')
