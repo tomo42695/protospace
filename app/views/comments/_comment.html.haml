@@ -3,6 +3,7 @@
     = link_to user_path(comment.user) do
       = image_tag(comment.user.image, style: "width: 64px; height: 64px;")
   .media-body
+    = button_to "DELETE", prototype_comment_path(comment, prototype_id: @prototype.id), method: :delete, remote: true
     %h4#top-aligned-media.media-heading
       = comment.user.username
     %p= comment.text

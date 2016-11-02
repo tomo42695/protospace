@@ -17,7 +17,6 @@ class PrototypesController < ApplicationController
 
   def create
     @prototype = Prototype.new(prototype_params)
-    binding.pry
     if @prototype.save
       flash[:notice] = "Create Success"
       redirect_to action: :index
@@ -29,6 +28,7 @@ class PrototypesController < ApplicationController
 
   def edit
     @prototype = Prototype.find(params[:id])
+    @prototype.prototype_images.build
   end
 
   def destroy

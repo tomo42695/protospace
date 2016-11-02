@@ -23,7 +23,7 @@
       %ul.proto-sub-list.list-group
       - @prototype.prototype_images.sub.each do |sub_image|
         %li.list-group-item
-          = image_tag(sub_image.first.content, class: 'img-responsive')
+          = image_tag(sub_image.content, class: 'img-responsive')
   .row.proto-description
     .col-md-3
       %h4 Catch Copy
@@ -43,7 +43,7 @@
   .row.proto-comments
     %h4.col-md-12
       Comments
-      %span.num (10)
+      %span.num (#{@prototype.comments.length})
     .col-md-8
       #comments
         = render @prototype.comments
