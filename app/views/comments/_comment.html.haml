@@ -1,0 +1,8 @@
+.media
+  .media-left
+    = link_to user_path(comment.user) do
+      = image_tag(comment.user.image, style: "width: 64px; height: 64px;")
+  .media-body
+    %h4#top-aligned-media.media-heading
+      = comment.user.username
+    %p= comment.text

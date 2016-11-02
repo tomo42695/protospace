@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   has_many :prototypes
   has_many :likes
+  has_many :comments
   validates :email, :username, :member, :profile, :work, :image, presence: true
 end
