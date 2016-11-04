@@ -1,1 +1,1 @@
-$('#comments').html('<%= j(render partial: 'comments/comment', collection: @prototype.comments) %>');
+$('#comments').html('<%= j(render partial: 'comments/comment', locals: {comments: @prototype.comments}) %>');
