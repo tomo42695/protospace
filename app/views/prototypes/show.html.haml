@@ -7,8 +7,9 @@
             = image_tag(@prototype.user.image, style: "width: 64px; height: 64px;")
         .media-body
           %h4#top-aligned-media.media-heading= @prototype.title
-          = link_to "EDIT", edit_prototype_path, class: "btn btn-primary btn-xs"
-          = link_to "DELETE", "/prototypes/#{@prototype.id}", method: :delete, class: "btn btn-primary btn-xs"
+          - if user_signed_in?
+            = link_to "EDIT", edit_prototype_path, class: "btn btn-primary btn-xs"
+            = link_to "DELETE", "/prototypes/#{@prototype.id}", method: :delete, class: "btn btn-primary btn-xs"
           .proto-user
             = link_to "by #{@prototype.user.username}", user_path(@prototype.user)
             %span.degree we-b inc. Designer

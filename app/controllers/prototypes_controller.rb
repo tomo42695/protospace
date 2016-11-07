@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:update, :destroy]
+  before_action :set_prototype, only: [:update, :destroy, :show, :edit]
   def index
     @prototypes = Prototype.includes(:prototype_images).order(created_at: :desc).page(params[:page])
   end
@@ -10,7 +10,6 @@ class PrototypesController < ApplicationController
   end
 
   def show
-    @prototype = Prototype.find(params[:id])
     @like = Like.find_by(prototype_id: @prototype.id)
     if current_user
       @comment = Comment.new(prototype_id: @prototype.id, user_id: current_user.id)
@@ -29,33 +28,32 @@ class PrototypesController < ApplicationController
   end
 
   def edit
-    @prototype = Prototype.find(params[:id])
     @prototype.prototype_images.build
   end
 
   def destroy
-    prototype = Prototype.find(params[:id])
-    if prototype.user.id == current_user.id
-      prototype.destroy
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user.id == current_user.id
+      @prototype.destroy
     end
     redirect_to action: :index
     flash[:notice] = "Successfully Deleted"
   end
 
   def update
-    prototype = Prototype.find(params[:id])
-    if prototype.user.id == current_user.id
-      prototype.update(prototype_params)
+    @prototype = Prototype.find(params[:id])
+    if @prototype.user.id == current_user.id
+      @prototype.update(prototype_params)
     end
     redirect_to action: :index
     flash[:notice] = "Successfully Edited"
   end
 
+  private
   def set_prototype
-      prototype = Prototype.find(params[:id])
+      @prototype = Prototype.find(params[:id])
   end
 
-  private
   def prototype_params
     params.require(:prototype).permit(:id, :title, :text, :catchcopy, :concept, prototype_images_attributes: [:id, :content, :role]).merge(user_id: current_user.id)
   end
