@@ -43,11 +43,12 @@
   .row.proto-comments
     #comments
       = render partial: "comments/comment", locals: {comments: @prototype.comments}
-    .form-inline
-      = form_for [@prototype, @comment], remote: true do |f|
-        %h4.write_comment Write a comment
-        .row
-          .form-group.col-md-10
-            = f.text_area :text, placeholder:  "Your comments", rows: "3", id: "comment_field"
-          .form-group.col-md-2
-            = f.submit "Comment", class: "btn btn-primary"
+    - if current_user
+      .form-inline
+        = form_for [@prototype, @comment], remote: true do |f|
+          %h4.write_comment Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area :text, placeholder:  "Your comments", rows: "3", id: "comment_field"
+            .form-group.col-md-2
+              = f.submit "Comment", class: "btn btn-primary"

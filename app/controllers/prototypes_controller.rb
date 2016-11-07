@@ -12,7 +12,9 @@ class PrototypesController < ApplicationController
   def show
     @prototype = Prototype.find(params[:id])
     @like = Like.find_by(prototype_id: @prototype.id)
-    @comment = Comment.new(prototype_id: @prototype.id, user_id: current_user.id)
+    if current_user
+      @comment = Comment.new(prototype_id: @prototype.id, user_id: current_user.id)
+    end
   end
 
   def create
