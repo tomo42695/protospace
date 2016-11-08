@@ -16,5 +16,6 @@ class CommentsController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:prototype_id])
+    @comments = @prototype.comments
   end
 end

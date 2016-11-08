@@ -1,13 +1,13 @@
 %h4.col-md-12
   Comments
-  %span.num (#{comments.length})
+  %span.num ( #{ comments.length } )
 .col-md-8
   - comments.each do |comment|
     .media
       .media-left
-        = link_to image_tag(comment.user.image, style: "width: 64px; height: 64px;"), user_path(comment.user)
+        = link_to image_tag(comment.user.image, style: 'width: 64px; height: 64px;'), user_path(comment.user)
       .media-body
         %h4#top-aligned-media.media-heading
           = comment.user.username
-          = link_to "DELETE", prototype_comment_path(comment, prototype_id: @prototype.id), method: :delete, remote: true, class: "btn btn-primary btn-xs"
+          = link_to 'DELETE', prototype_comment_path(comment, prototype_id: @prototype.id), method: :delete, remote: true, class: "btn btn-primary btn-xs"
         %p= comment.text

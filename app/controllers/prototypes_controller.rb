@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: [:update, :destroy, :show, :edit]
+  before_action :set_prototype, only: %i(update destroy show edit)
   def index
     @prototypes = Prototype.includes(:prototype_images).order(created_at: :desc).page(params[:page])
   end
@@ -11,9 +11,8 @@ class PrototypesController < ApplicationController
 
   def show
     @like = Like.find_by(prototype_id: @prototype.id)
-    if current_user
-      @comment = Comment.new(prototype_id: @prototype.id, user_id: current_user.id)
-    end
+    @comments = @prototype.comments
+    @comment = Comment.new(prototype_id: @prototype.id, user_id: current_user.id) if current_user
   end
 
   def create
