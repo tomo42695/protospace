@@ -1,5 +1,6 @@
 .container
-  %h2= @tag
+  %h2
+    = @tag
   .container.proto-list
     .row
       = render partial: 'prototypes/prototype', collection: @prototypes
