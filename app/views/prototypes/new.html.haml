@@ -4,7 +4,7 @@
       %header.row.user-nav.row
         .col-md-12
           .proto-new-title
-            = f.text_area :title, placeholder: "Title", class: "proto-new-title"
+            = f.text_area :title, placeholder: 'Title', class: 'proto-new-title'
       .row
         .col-md-12
           .cover-image-upload
@@ -24,17 +24,17 @@
                   %span +
       .row.proto-description
         .col-md-12
-          = f.text_area :catchcopy, placeholder: "Catch Copy"
+          = f.text_area :catchcopy, placeholder: 'Catch Copy'
         .col-md-12
-          = f.text_area :concept, cols: "30", rows: "4", placeholder: "Concept"
+          = f.text_area :concept, cols: '30', rows: '4', placeholder: 'Concept'
         .col-md-12
           %h4 Tag List
           .row
             .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "Web Design"
+              = text_field_tag 'prototype[tag][]', '', placeholder: 'Web Design'
             .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "UI"
+              = text_field_tag 'prototype[tag][]', '', placeholder: 'UI'
             .col-md-3
-              = text_field_tag "prototype[tag][]", "", placeholder: "Application"
+              = text_field_tag 'prototype[tag][]', '', placeholder: 'Application'
     .row.text-center.proto-btn
-      = f.submit "Publish", class: "btn btn-lg btn-primary btn-block"
+      = f.submit 'Publish', class: 'btn btn-lg btn-primary btn-block'
