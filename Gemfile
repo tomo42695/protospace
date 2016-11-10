@@ -54,3 +54,4 @@ end
   gem "carrierwave"
   gem "twitter-bootstrap-rails"
   gem "kaminari"
+  gem 'acts-as-taggable-on', '~> 3.4'

@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   scope module: :prototypes do
     resources :popular, only: :index
   end
+  resources :tags, only: [:index, :show]
 end
